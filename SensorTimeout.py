@@ -37,6 +37,8 @@ class SenseFail:
     def topic_seen(self, topic):
         if topic == "/SenseFail/Report":
             self.client.publish("/SenseFail/Report/Data", json.dumps(self.topic_last_seen, default=date_handler))
+        elif "error" in topic.lower():
+            pass
         elif topic == "/SenseFail/Report/Data":
             pass
         else:
